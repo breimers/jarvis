@@ -1,0 +1,6 @@
+llama-cpp-python
+langchain
+langchain_community
+unstructured[pdf]
+sentence-transformers
+chromadb

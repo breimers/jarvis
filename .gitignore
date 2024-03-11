@@ -1,0 +1,6 @@
+ds/*
+files/*
+env
+.env
+venv
+.venv

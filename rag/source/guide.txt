@@ -1,0 +1,79 @@
+Player perks:
+Don't try to be a jack of all trades: you wont get as far in each perk tree. Focus on specific attributes. This also applies to companions
+
+The must-have perk trees for the clan leader/party leader to have are Leadership and Medicine.
+
+The leadership perk at lvl275 adds +1/ (lvl - 250) to the party size of EVERY PARTY IN THE CLAN! The medicine perk at level 275 adds 0.5HP / (lvl - 200) to every unit in the party, and it does not work for surgeons - only party leaders.
+
+Don't bother putting points in Trade. It is annoying to level and money isn't an issue mid-game. More on this later.
+
+
+
+Companion perks:
+The companion limit is around 10, not including family, so plan accordingly. You want some companions to be dedicated formation captains. For me that is 3 - infantry (legionnaires), ranged (Fians), and Melee Cav (Catphracts, etc.). During battle set-up, click the picture frame next to each formation and hold "ALT" when selecting a captain to compare perks. Captains in your army that aren't in your party can also be selected.
+
+For infantry captain, the perk desired in order of importance are:
+
+1H to 225
+
+Athletics to 250 (with a key milestone at 125 that reduces charge damage taken by 50%: very useful against cav charges)
+
+Throwing to 50 (gives +15 to 1H, 2H, and Polearm to troops)
+
+Polearm as high as possible (the whole tree is useful, with 10% dmg bonus for melee at lvl 225)
+
+Tactics, especially beneficial for party leaders, with milestones at 100, 125, and 200
+
+For the ranged captain, the perks in order of importance:
+
+Bow to 125 (if your ranged formation is crossbowmen, that tree is more useful. Lvl250 xbow skill has a 50% wage reduction for all ranged troops and is helpful if you're having financial problems)
+
+Athletics to 250
+
+Throwing to 50 (gives +15 to bow and crossbow skills)
+
+Tactics, especially beneficial for party leaders, with milestones at 100, 125, and 200
+
+For the melee cavalry captain, the perks in order of importance:
+
+Riding
+
+1H to 75
+
+Polearm to 225
+
+Tactics, especially beneficial for party leaders, with milestones at 100, 125, and 200
+
+
+
+Spouse:
+There is no limit to how many children you can have and it is a huge boost to your clan to have as many as possible. Assuming you're playing a male character, it is best to find a wife that is 18. After 35-40, the chance of birth is essentially 0. If you have companion deaths enabled, you can kill your wife in battle after 35 and get a new one. You need to have good relations with your wife, she must be in your party, and you must be "waiting here for a while" in town at 6AM - the sun symbol on the clock for the dice roll to happen. Make sure both you and your wife have the level 25 charm perk "Virile".
+
+Since your wife needs to be in your party, you may as well have them as a dedicated intelligence clan member - steward, medic, and engineer, (or scout).
+
+
+
+Companion culture:
+Some companions are useful to use as governors to bring freshly-conquered towns/castles into a sustainable shape, or to use in a castle to keep expensive troops during peace time. In my playthrough, the fiefs allocated by the kingdom follow geographic patterns. If the first castle/town you are allocated by your king is in Battania, the next ones will be in the same region. Setting a governor to the property of the same culture as the property gives a boost to the loyalty of the town/castle. So if your first keep/town is in Battania, don't go looking for Khuzait companions, etc...
+
+Also, if you are frustrated your king isn't giving you any towns after your first one - are the warzones near your existing towns/castle? If not, you can give them up to get a chance to move your region closer to where the action is.
+
+
+
+Leveling up difficult perk trees:
+TACTICS: which is hugely beneficial to your party leaders and captains: Make an army, and invite the party leader/party you want to level to your army. When you go into battle, let your character get wounded - charge into the enemy alone or something. The other party leader will take over command and level up tactics quickly.
+
+ENGINEERING: I'm still angry I wasted so much time having the companion be the clan "engineer" and building siege weapons for a level here and there... And when I figured out you can MAKE them use a ballista on defense and gain 50 levels in one battle... ugh. So on defense in a siege, make a formation with no troops, and set the companion you want to level as the captain of that empty formation. Place them next to the ballista, and CLICK on the ballista (blue gears icon should show). There is no confirmation or audible command, but trust me they will operate the ballista. If you can't make a formation with no troops, that means you have other companions. So make 2 empty formations, and set the target companion as the captain of the second one. Also, other party leaders in your army gain engineering exp while you build siege camps and weapons.
+
+MEDICINE: Really the best way to level this is to have a bunch of wounded troops, set your companion as your party medic, and wait in town to heal the troops.
+
+Making money:
+There is lots of info on smithing $$ out there. That's the best way to make money in the early game. For sustainable finances later in the game, assess your garrisons. Fiefs/castles you own that aren't near warzones should be making you money. Disable auto-recruitment in the clan party menu for those, and remove high cost (12/18) troops from those garrisons. I found caravans have never been useful to make money, only to level up trade for my companions if I wanted to get them some exp. Workshops are much better investment (in your own town!) than caravans because they won't be captured if you take care of your territory.
+
+Don't bother leveling up trade. Money won't be an issue later in the game and you will miss those attribute points.
+
+
+
+Miscellaneous:
+You can reset the perks chosen (not the focus points/attributes) for yourself and companions by "walking through" the arena and talking to the arena master.
+
