@@ -21,3 +21,4 @@ If datastore variable in ChatBot is set, it will attempt to build a vector store
  - [ ] Discord interface (WIP)
  - [ ] Code execution
  - [ ] Image generation (using Koala?)
+ - [ ] Docker image
