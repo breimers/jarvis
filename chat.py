@@ -11,6 +11,7 @@ from langchain_core.language_models.llms import LLM
 
 DEFAULT_INTENTS = {
     "RAG": ["search", "find", "query", "retrieve", "look", "lookup", "research"],
+    "EXEC": ["run", "execute", "shell"],
 }
 
 
