@@ -91,7 +91,7 @@ class GenerationArgs:
         }
 
 
-class Chat:
+class ChatBot:
     def __init__(
         self, 
         system_prompt="You are a helpful AI assistant.",
@@ -158,5 +158,5 @@ class Chat:
 
 
 if __name__ == "__main__":
-    chat = Chat()
+    chat = ChatBot()
     chat.start_shell()
