@@ -1,5 +1,4 @@
 import os
-import re
 from typing import Any, List, Mapping, Optional
 from llama_cpp import Llama
 from langchain.vectorstores import Chroma
@@ -102,7 +101,7 @@ class Chat:
         max_tokens=512,
         model_path="/Users/breimers/Workshop/models/llm/dolphin-2.6-mistral-7b-dpo-laser-Q8_0.gguf",
         data_store="rag/source",
-        context_length=32000,
+        context_length=16000,
         gpu_layers=-1
     ) -> None:
         self.history = ChatHistory(system_prompt)

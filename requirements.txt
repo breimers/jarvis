@@ -1,6 +1,10 @@
+# Main
 llama-cpp-python
 langchain
 langchain_community
-unstructured[pdf]
+unstructured[local-inference]
 sentence-transformers
 chromadb
+
+# Interfaces
+discord.py
