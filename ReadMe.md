@@ -2,8 +2,11 @@
 
 ## Hardware
 
-Can run in CPU only or GPU mode. Tested on Apple Silicion M1 Pro 10 Core 16 GB.
+Can run in CPU only or GPU mode.
 
+### Tested Systems
+- Apple Silicion M1 Pro, 10 Core, 16 GB
+  
 ## Model
 
 Any Llama-cpp model in the GGUF format is valid
