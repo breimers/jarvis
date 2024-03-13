@@ -119,7 +119,7 @@ from .base import Plugin
 
 class MyPlugin(Plugin):
     def __init__(self, name="MyPlugin", chat_bot=None, **kwargs) -> None:
-        super(Save, self).__init__(name=name, chat_bot=chat_bot)
+        super(MyPlugin, self).__init__(name=name, chat_bot=chat_bot)
         if kwargs.get("myvar"):
             self.var = kwargs.get("myvar")
         else:
