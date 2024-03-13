@@ -1,6 +1,16 @@
 # Jarvis
 General purpose extensible AI assistant framework with plugins, code execution, and more.
 
+## Environnment
+
+### Python env
+It is recommended to run this in a Python virtual environment.
+
+### Shell env
+Optionally, enable `TOKENIZERS_PARALLELISM` by running `source env.sh`
+
+This will enable parallelism but could cause deadlocks.
+
 ## Hardware
 
 Can run in CPU only or GPU mode.
