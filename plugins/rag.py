@@ -1,4 +1,4 @@
-"""Langchain Wrapper
+"""RAG Plugin
 
 This module integrates with langchain to create a retrieval-augmented-generation pipeline.
 """
@@ -68,16 +68,15 @@ class RAGPipeline(Plugin):
             **kwargs: Additional keyword arguments.
         """
         super(RAGPipeline, self).__init__(name=name, chat_bot=chat_bot)
+        self.source = "rag/source"
         if kwargs.get("source"):
             self.source = kwargs.get("source")
-        else:
-            self.source = "rag/source"
         loader = DirectoryLoader(self.source)
         docs = loader.load()
         self.embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
         self.vectorstore = Chroma.from_documents(
             documents=docs, 
-            persist_directory='./rag/vectors', 
+            persist_directory='rag/vectors', 
             embedding=self.embeddings
         )
         self.llm = LangchainWrapper(model_instance=self.chat_bot.model)
