@@ -31,17 +31,27 @@ class LangchainWrapper(LLM):
     def _identifying_params(self) -> Mapping[str, Any]:
         return {"model_instance": self.model_instance}
 
+
 class RAGPipeline(Plugin):
-    def __init__(self, name="RAG", source="./rag/source", llm=None) -> None:
-        super(RAGPipeline, self).__init__(name=name)
-        loader = DirectoryLoader(source)
+    def __init__(self, name="RAG", chat_bot=None, **kwargs) -> None:
+        super(RAGPipeline, self).__init__(name=name, chat_bot=chat_bot)
+        if kwargs.get("source"):
+            self.source = kwargs.get("source")
+        else:
+            self.source = "rag/source"
+        loader = DirectoryLoader(self.source)
         docs = loader.load()
         self.embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
-        self.vectorstore = Chroma.from_documents(documents=docs, persist_directory='./rag/vectors', embedding=self.embeddings)
-        self.llm = llm
+        self.vectorstore = Chroma.from_documents(
+            documents=docs, 
+            persist_directory='./rag/vectors', 
+            embedding=self.embeddings
+        )
+        self.llm = LangchainWrapper(model_instance=self.chat_bot.model)
+        self.qa = RetrievalQA.from_llm(self.llm, retriever=self.vectorstore.as_retriever())
+
         
     def run(self, input):
-        qa = RetrievalQA.from_llm(self.llm, retriever=self.vectorstore.as_retriever())
-        results = qa(input)
+        results = self.qa(input)
         answer = results['result']
-        return answer
+        self.chat_bot.history.add('document-retrieval', answer)

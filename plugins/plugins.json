@@ -1,14 +1,17 @@
 {
     "RAG": {
         "intents": ["search", "find", "query", "retrieve", "look", "lookup", "research"],
-        "class": "plugins.rag.RAGPipeline"
+        "class": "plugins.rag.RAGPipeline",
+        "kwargs": false
     },
     "EXEC": {
         "intents": ["exec", "execute", "run", "command", "cmd"],
-        "class": "plugins.exec.Executor"
+        "class": "plugins.exec.Executor",
+        "kwargs": {"timeout": 300}
     },
     "SAVE": {
         "intents": ["/save", "/keep"],
-        "class": "plugins.base.Save"
+        "class": "plugins.base.Save",
+        "kwargs": false
     }
 }
