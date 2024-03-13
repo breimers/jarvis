@@ -1,6 +1,35 @@
 # Jarvis
 General purpose extensible AI assistant framework with plugins, code execution, and more.
 
+## Getting Started
+
+### Quickstart
+Install dependencies using pip, ignore the warning about mismatched versions. 
+
+`pip install -r requirements.txt`
+
+Run a shell session with the assistant using default settings.
+
+`python3 ./chat.py`
+
+### Customize an Assistant
+You can customize your assistant using the `ChatBot` class in chat.py:
+
+```python
+from chat import ChatBot
+
+my_assistant = ChatBot(
+        system_prompt="You are a helpful AI assistant.",
+        temperature=1.00,
+        top_p=0.9,
+        top_k=1,
+        max_tokens=512,
+        model_path="dolphin-7b-Q8_0.gguf",
+        context_length=16000,
+        gpu_layers=-1
+)
+```
+
 ## Environnment
 
 ### Python env
