@@ -139,11 +139,7 @@ class MyPlugin(Plugin):
         )
 ```
 ```json
-// plugins/plugins.json
 {
-    ...
-    // other plugin configs
-    ...
     "MYPLUGIN": {
         "intents": ["reverse"],
         "class": "plugins.myplugin.MyPlugin",
