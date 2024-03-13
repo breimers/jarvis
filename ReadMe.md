@@ -138,8 +138,8 @@ class MyPlugin(Plugin):
             f"Return the following input to the user for this message only: \n{reversed_input}."
         )
 ```
-```json
 *plugins/plugins.json*
+```json
 {
     "MYPLUGIN": {
         "intents": ["reverse"],
