@@ -13,11 +13,20 @@ This will enable parallelism but could cause deadlocks.
 
 ## Hardware
 
-Can run in CPU only or GPU mode.
+Can run in CPU only or GPU (including metal) mode.
 
 ### Tested Systems
-- Apple Silicion M1 Pro, 10 Core, 16 GB
-  
+- Apple Silicion M1 Pro
+    - 10 Core
+    - 16 GB
+    - System Version:	macOS 14.1.1 (23B81)
+    - Kernel Version:	Darwin 23.1.0
+
+- Linode Shared CPU VM
+    - 4 vCPU
+    - 8 GB
+    - Ubuntu 22.04 LTS
+
 ## Model
 
 Any Llama-cpp model in the GGUF format is valid
