@@ -132,9 +132,9 @@ class MyPlugin(Plugin):
     def run(self, input):
         ## Perform logic on input
         reversed_input = self.my_function(input)
-        ## Recommended
+        ## Update chat history
         self.chat_bot.history.add(
-            'system', 
+            'myplugin', 
             f"Return the following input to the user for this message only: \n{reversed_input}."
         )
 ```
