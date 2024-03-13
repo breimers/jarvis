@@ -113,6 +113,44 @@ The naming convention is as follows: `plugins.<plugin-file.py>.<Plugin class>`
 
 `Plugin` classes should always have an `__init__`, and a `run` method. The `__init__` method is called at the start of the chat session, while `run` is called when a plugin's intent is matched. 
 
+```python
+# plugins/myplugin.py
+
+from .base import Plugin
+
+class MyPlugin(Plugin):
+    def __init__(self, name="MyPlugin", chat_bot=None, **kwargs) -> None:
+        super(Save, self).__init__(name=name, chat_bot=chat_bot)
+        if kwargs.get("myvar"):
+            self.var = kwargs.get("myvar")
+        else:
+            self.var= "hello"
+
+    def my_function(self, x):
+        return x[::-1]
+
+    def run(self, input):
+        ## Perform logic on input
+        reversed_input = self.my_function(input)
+        ## Recommended
+        self.chat_bot.history.add(
+            'system', 
+            f"Return the following input to the user for this message only: \n{reversed_input}."
+        )
+```
+```json
+// plugins/plugins.json
+{
+    ...
+    // other plugin configs
+    ...
+    "MYPLUGIN": {
+        "intents": ["reverse"],
+        "class": "plugins.myplugin.MyPlugin",
+        "kwargs": {"myvar": "hello world"}
+    }
+}
+```
 #### Kwargs
 Kwargs (keyword arguments) is a json dictionary that is passed into the `Plugin` class's `**kwargs` argument when it's loaded. 
 
