@@ -1,6 +1,6 @@
 Commercial License Agreement
 
-This Commercial License Agreement ("Agreement") is entered into as of [Date] ("Effective Date") by and between [Your Company Name], a company organized and existing under the laws of [Your Country], with its principal place of business at [Your Address] ("Licensee"), and Bradley Reimers ("Licensor").
+This Commercial License Agreement ("Agreement") is entered into as of [Effective Start Date] ("Effective Date") by and between [Your Company Name], a company organized and existing under the laws of [Your Country], with its principal place of business at [Your Address] ("Licensee"), and Bradley Reimers ("Licensor").
 
 WHEREAS, Licensor has developed an AI Application named "Jarvis" (the "Application");
 
@@ -23,16 +23,19 @@ NOW, THEREFORE, in consideration of the mutual covenants contained herein and ot
 4. Confidentiality:
    Licensee agrees to keep confidential all information relating to the Application and not to disclose such information to any third party without the prior written consent of Licensor.
 
-5. Warranty Disclaimer:
+5. Effective Dates:
+   This Agreement shall be effective as of [Effective Start Date] and shall remain in effect until [Effective End Date], unless earlier terminated as provided herein.
+
+6. Warranty Disclaimer:
    THE APPLICATION IS PROVIDED "AS IS" WITHOUT ANY WARRANTY OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY. LICENSOR DISCLAIMS ALL WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
 
-6. Limitation of Liability:
+7. Limitation of Liability:
    IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT OR THE USE OF THE APPLICATION, EVEN IF LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. IN NO EVENT SHALL LICENSOR'S TOTAL LIABILITY UNDER THIS AGREEMENT EXCEED THE AMOUNT PAID BY LICENSEE FOR THE USE OF THE APPLICATION.
 
-7. Termination:
+8. Termination:
    This Agreement shall remain in effect until terminated. Either party may terminate this Agreement upon written notice to the other party in the event of a material breach of any provision of this Agreement by the other party. Upon termination, Licensee shall cease all use of the Application.
 
-8. Miscellaneous:
+9. Miscellaneous:
    This Agreement constitutes the entire agreement between the parties concerning the subject matter hereof and supersedes all prior and contemporaneous agreements and understandings, whether written or oral. This Agreement may be amended only by a written instrument signed by both parties. This Agreement shall be governed by and construed in accordance with the laws of [Your Country], without giving effect to any conflict of law principles.
 
 IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.
@@ -45,3 +48,6 @@ Title: [Your Title]
 Bradley Reimers
 By: ________________________
 Name: Bradley Reimers
+
+Effective Start Date: [Effective Start Date]
+Effective End Date: [Effective End Date]
