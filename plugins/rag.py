@@ -1,6 +1,6 @@
 """Langchain Wrapper
 
-This module defines a wrapper class for integrating language models with langchain.
+This module integrates with langchain to create a retrieval-augmented-generation pipeline.
 """
 
 from typing import Any, List, Mapping, Optional
