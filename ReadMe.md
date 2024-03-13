@@ -139,6 +139,7 @@ class MyPlugin(Plugin):
         )
 ```
 ```json
+*plugins/plugins.json*
 {
     "MYPLUGIN": {
         "intents": ["reverse"],
