@@ -58,7 +58,10 @@ Can run in CPU only or GPU (including metal) mode.
 
 ## Model
 
-Any Llama-cpp model in the GGUF format is valid
+Any Llama-cpp model in the GGUF format should work.
+
+### Tested Models
+- [Dolphin 2.6 Mistral 7B DPO Laser (Quantized)](https://huggingface.co/TheBloke/dolphin-2.6-mistral-7B-dpo-laser-GGUF)
 
 ## Chat 
 
