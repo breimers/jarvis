@@ -1,3 +1,8 @@
+"""Executor Plugin
+
+This module defines a plugin for executing commands.
+"""
+
 import shlex
 import subprocess
 
@@ -5,7 +10,16 @@ from .base import Plugin
 
 
 class Executor(Plugin):
+    """Class representing an executor plugin."""
+    
     def __init__(self, name="EXEC", chat_bot=None, **kwargs) -> None:
+        """Initialize an Executor plugin.
+
+        Args:
+            name (str, optional): The name of the plugin. Defaults to "EXEC".
+            chat_bot (ChatBot, optional): The chatbot instance. Defaults to None.
+            **kwargs: Additional keyword arguments.
+        """
         super(Executor, self).__init__(name=name, chat_bot=chat_bot)
         self.timeout = 300
         self.intents = ["exec", "execute", "run", "command", "cmd"]
@@ -14,6 +28,11 @@ class Executor(Plugin):
             self.timeout = int(kwargs.get('timeout'))
             
     def run(self, input):
+        """Run the executor plugin.
+
+        Args:
+            input (str): The input text.
+        """
         input = str(input)            
         for key in self.intents:
             if key in input:
