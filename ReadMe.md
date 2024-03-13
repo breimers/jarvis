@@ -113,9 +113,8 @@ The naming convention is as follows: `plugins.<plugin-file.py>.<Plugin class>`
 
 `Plugin` classes should always have an `__init__`, and a `run` method. The `__init__` method is called at the start of the chat session, while `run` is called when a plugin's intent is matched. 
 
+*plugins/plugins.json*
 ```python
-# plugins/myplugin.py
-
 from .base import Plugin
 
 class MyPlugin(Plugin):
