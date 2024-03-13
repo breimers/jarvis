@@ -1,5 +1,10 @@
-rag/*
-files/*
+rag/vectors/*.sqlite3
+rag/vectors/*/*
+
+rag/source/*.txt
+rag/source/*.pdf
+
+history/*.txt
 env
 .env
 venv
