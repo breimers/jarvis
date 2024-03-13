@@ -5,6 +5,7 @@ class Plugin:
     def __init__(self, name, chat_bot=None, **kwargs) -> None:
         self.name = name
         self.chat_bot = chat_bot
+
         
 class Save(Plugin):
     def __init__(self, name="Save", chat_bot=None, **kwargs) -> None:

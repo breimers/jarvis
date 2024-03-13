@@ -1,4 +1,3 @@
-
 from typing import Any, List, Mapping, Optional
 
 from llama_cpp import Llama
@@ -10,6 +9,7 @@ from langchain_core.callbacks.manager import CallbackManagerForLLMRun
 from langchain_core.language_models.llms import LLM
 
 from .base import Plugin
+
 
 class LangchainWrapper(LLM):
     model_instance: Llama
@@ -50,7 +50,6 @@ class RAGPipeline(Plugin):
         self.llm = LangchainWrapper(model_instance=self.chat_bot.model)
         self.qa = RetrievalQA.from_llm(self.llm, retriever=self.vectorstore.as_retriever())
 
-        
     def run(self, input):
         results = self.qa(input)
         answer = results['result']
