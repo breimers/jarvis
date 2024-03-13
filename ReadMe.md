@@ -1,5 +1,5 @@
 # Jarvis
-General purpose extensible AI assistant with plugins, code execution, and more.
+General purpose extensible AI assistant framework with plugins, code execution, and more.
 
 ## Hardware
 
