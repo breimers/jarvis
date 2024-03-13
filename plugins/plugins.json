@@ -1,0 +1,14 @@
+{
+    "RAG": {
+        "intents": ["search", "find", "query", "retrieve", "look", "lookup", "research"],
+        "class": "plugins.rag.RAGPipeline"
+    },
+    "EXEC": {
+        "intents": ["exec", "execute", "run", "command", "cmd"],
+        "class": "plugins.exec.Executor"
+    },
+    "SAVE": {
+        "intents": ["/save", "/keep"],
+        "class": "plugins.base.Save"
+    }
+}

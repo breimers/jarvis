@@ -1,0 +1,1 @@
+export TOKENIZERS_PARALLELISM=true

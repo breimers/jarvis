@@ -1,16 +1,28 @@
+"""Jarvis.Chat
+
+"""
+
+# Native imports
 import os
 import json
 import shlex
 import subprocess
 from datetime import datetime
 from typing import Any, List, Mapping, Optional
+
+# LLM Imports
 from llama_cpp import Llama
+
+# RAG Imports
 from langchain.vectorstores import Chroma
 from langchain.embeddings import SentenceTransformerEmbeddings
 from langchain.chains import RetrievalQA
 from langchain_community.document_loaders import DirectoryLoader
 from langchain_core.callbacks.manager import CallbackManagerForLLMRun
 from langchain_core.language_models.llms import LLM
+
+# Custom Imports
+from plugins import *
 
 
 DEFAULT_INTENTS = {
@@ -38,7 +50,6 @@ class LangchainWrapper(LLM):
 
     @property
     def _identifying_params(self) -> Mapping[str, Any]:
-        """Get the identifying parameters."""
         return {"model_instance": self.model_instance}
 
 
@@ -55,6 +66,7 @@ class RAGPipeline:
         results = qa(query)
         answer = results['result']
         return answer
+    
 
 
 class ChatMessage:
@@ -143,7 +155,7 @@ class IntentionManager:
     def EXEC(self, input, timeout=300):
         input = str(input)
         if any([input.startswith(key) for key in self.intention_map["EXEC"]]):
-            command = input.split()[1]
+            command = input.split(maxsplit=1)[1]
             self.chat_bot.history.add('executor', f"Running command: {command}\n\n")
             cmd = shlex.split(command, posix=True)
             try:
@@ -155,7 +167,7 @@ class IntentionManager:
                 self.chat_bot.history.add('executor', f"Error: System failed to respond within {timeout} seconds.")
             except subprocess.SubprocessError as e:
                 self.chat_bot.history.add('executor', f"Error: {e}")
-            self.chat_bot.history.add('system', "Please summarize the executor results for the user.")
+            self.chat_bot.history.add('system', "Please report the executor results for the user.")
             
     def SAVE(self, input):
         _ = input
