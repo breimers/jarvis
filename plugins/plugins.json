@@ -13,5 +13,10 @@
         "intents": ["/save", "/keep"],
         "class": "plugins.base.Save",
         "kwargs": false
+    },
+    "DIFF": {
+        "intents": ["generate", "render", "draw", "sketch"],
+        "class": "plugins.diffusion.Diffuser",
+        "kwargs": {"model_path": "/Users/breimers/Workshop/models/generative/koala-700m", "device": "cpu", "destination": "/Users/breimers/Pictures"}
     }
 }

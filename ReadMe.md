@@ -151,8 +151,8 @@ class MyPlugin(Plugin):
 Kwargs (keyword arguments) is a json dictionary that is passed into the `Plugin` class's `**kwargs` argument when it's loaded. 
 
 ## TODO
- - [ ] Discord interface (WIP)
- - [ ] Image generation (using Koala?)
+ - [ ] *Discord interface (WIP)*
+ - [ ] Koala image generation ()
  - [ ] Docker image
  - [x] Plugins interface
  - [x] Code execution
