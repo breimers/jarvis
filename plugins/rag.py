@@ -6,8 +6,8 @@ This module integrates with langchain to create a retrieval-augmented-generation
 from typing import Any, List, Mapping, Optional
 
 from llama_cpp import Llama
-from langchain.vectorstores import Chroma
-from langchain.embeddings import SentenceTransformerEmbeddings
+from langchain_community.vectorstores import Chroma
+from langchain_community.embeddings import SentenceTransformerEmbeddings
 from langchain.chains import RetrievalQA
 from langchain_community.document_loaders import DirectoryLoader
 from langchain_core.callbacks.manager import CallbackManagerForLLMRun

@@ -5,6 +5,7 @@ rag/source/*.txt
 rag/source/*.pdf
 
 history/*.txt
+history/*.json
 env
 .env
 venv

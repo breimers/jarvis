@@ -85,9 +85,9 @@ class ChatHistory:
         Returns:
             str: The filename of the saved chat history.
         """
-        filename = os.path.join(os.path.abspath(location), f"{str(int(datetime.now().timestamp()))}.txt")
+        filename = os.path.join(os.path.abspath(location), f"{str(int(datetime.now().timestamp()))}.json")
         with open(filename, "w") as f:
-            json.dump([m.dict() for m in self.messages], f)
+            json.dump([m.dict() for m in self.messages], f, indent=4)
         return filename
 
 
