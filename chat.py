@@ -180,7 +180,7 @@ class ChatBot:
         top_p=0.9,
         top_k=1,
         max_tokens=512,
-        model_path="/Users/breimers/Workshop/models/llm/dolphin-2.6-mistral-7b-dpo-laser-Q8_0.gguf",
+        model="/Users/breimers/Workshop/models/llm/dolphin-2.6-mistral-7b-dpo-laser-Q8_0.gguf",
         context_length=16000,
         gpu_layers=-1
     ) -> None:
@@ -203,12 +203,12 @@ class ChatBot:
             top_k, 
             top_p
         )
-        self.load_model(model_path, context_length, gpu_layers)
+        self.load_model(model, context_length, gpu_layers)
         self.intentions = IntentionManager(chat_bot=self)
     
     # Move to Plugins once the class is written
     
-    def load_model(self, model_path, context_length, gpu_layers):
+    def load_model(self, model, context_length, gpu_layers):
         """Load the model.
 
         Args:
@@ -216,13 +216,18 @@ class ChatBot:
             context_length (int): The context length.
             gpu_layers (int): The number of GPU layers.
         """
-        self.model = Llama(
-            model_path=model_path,
-            n_ctx=context_length, 
-            n_threads=os.cpu_count()-1,
-            n_gpu_layers=gpu_layers,
-            f16_kv=True,
-        )
+        if isinstance(model, str):
+            self.model = Llama(
+                model_path=model,
+                n_ctx=context_length, 
+                n_threads=os.cpu_count()-1,
+                n_gpu_layers=gpu_layers,
+                f16_kv=True,
+            )
+        elif isinstance(model, Llama):
+            self.model = model
+        else:
+            raise RuntimeError("Model class must be one of: str, Llama")
         
     def call(self, actor, input):
         """Call the chatbot with user input.

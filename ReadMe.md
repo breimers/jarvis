@@ -141,7 +141,7 @@ class MyPlugin(Plugin):
 ```json
 {
     "MYPLUGIN": {
-        "intents": ["reverse"],
+        "intents": ["trigger"],
         "class": "plugins.myplugin.MyPlugin",
         "kwargs": {"myvar": "hello world"}
     }
@@ -152,7 +152,7 @@ Kwargs (keyword arguments) is a json dictionary that is passed into the `Plugin`
 
 ## TODO
  - [ ] *Discord interface (WIP)*
- - [ ] Koala image generation ()
  - [ ] Docker image
  - [x] Plugins interface
  - [x] Code execution
+ - [x] Koala image generation ()
