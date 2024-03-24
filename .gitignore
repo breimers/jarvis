@@ -11,5 +11,4 @@ env
 venv
 .venv
 
-
-*.xcuserstate
+ui/macos/**/*.xcodeproj
