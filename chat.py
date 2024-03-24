@@ -7,6 +7,8 @@ This module defines classes for managing chat messages, chat history, generation
 import os
 import json
 import importlib
+import requests
+import psutil
 from datetime import datetime
 
 # LLM Imports
@@ -182,7 +184,8 @@ class ChatBot:
         max_tokens=512,
         model="/Users/breimers/Workshop/models/llm/dolphin-2.6-mistral-7b-dpo-laser-Q8_0.gguf",
         context_length=16000,
-        gpu_layers=-1
+        gpu_layers=-1,
+        config=dict(),
     ) -> None:
         """Initialize a ChatBot object.
 
@@ -203,11 +206,48 @@ class ChatBot:
             top_k, 
             top_p
         )
+        self.config = config
         self.load_model(model, context_length, gpu_layers)
         self.intentions = IntentionManager(chat_bot=self)
-    
-    # Move to Plugins once the class is written
-    
+        
+    def select_model(self, resource_model_map):
+        total_mem = psutil.virtual_memory().total
+        if int(total_mem) >= int(resource_model_map["low"]["min_memory_gb"]):
+            if int(total_mem) >= int(resource_model_map["medium"]["min_memory_gb"]):
+                if int(total_mem) >= int(resource_model_map["high"]["min_memory_gb"]):
+                    return resource_model_map["high"]["model_url"]
+                return resource_model_map["medium"]["model_url"]
+            return resource_model_map["low"]["model_url"]
+        return resource_model_map["low"]["model_url"]
+
+    def download_file(self, dir, url):
+        local_filename = url.split('/')[-1]
+        local_filename = os.path.join(dir, local_filename)
+        with requests.get(url, stream=True) as r:
+            r.raise_for_status()
+            with open(local_filename, 'wb') as f:
+                for chunk in r.iter_content(chunk_size=8192): 
+                    f.write(chunk)
+        return os.path.abspath(local_filename)
+
+    def download_model(self):
+        retry_policy = int(self.config.get("retry_policy", 3))
+        models_target_dir = self.config.get("models_target_dir", "models")
+        while retry_policy > 0:
+            try:
+                resource_model_map = self.config.get(
+                    "default_models"
+                )
+                model_path = self.download_file(
+                    models_target_dir, 
+                    self.select_model(resource_model_map)
+                )
+                return model_path
+            except Exception as e:
+                print(f"\nError encountered, retrying:\n{e}\n\n")
+                continue
+        return ""
+
     def load_model(self, model, context_length, gpu_layers):
         """Load the model.
 
@@ -226,8 +266,16 @@ class ChatBot:
             )
         elif isinstance(model, Llama):
             self.model = model
+        elif (model is None) and self.config.get("default_models"):
+            self.model = Llama(
+                model_path=self.download_model(),
+                n_ctx=context_length, 
+                n_threads=os.cpu_count()-1,
+                n_gpu_layers=gpu_layers,
+                f16_kv=True,
+            )
         else:
-            raise RuntimeError("Model class must be one of: str, Llama")
+            raise RuntimeError("Model must be one of: None (from config.json), str, llama_cpp.Llama")
         
     def call(self, actor, input):
         """Call the chatbot with user input.
@@ -259,8 +307,3 @@ class ChatBot:
             except KeyboardInterrupt:
                 self.history.save()
                 break
-
-
-if __name__ == "__main__":
-    chat = ChatBot()
-    chat.start_shell()

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State private var username: String = ""
     var body: some View {
         ChatScreen()
     }
