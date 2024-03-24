@@ -10,5 +10,3 @@ env
 .env
 venv
 .venv
-
-ui/macos/**/*.xcodeproj/*
