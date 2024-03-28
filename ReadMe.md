@@ -36,9 +36,9 @@ my_assistant = ChatBot(
 It is recommended to run this in a Python virtual environment.
 
 ### Shell env
-Optionally, enable `TOKENIZERS_PARALLELISM` by running `source env.sh`
+Optionally, enable performance enhancements by running `source env.sh`
 
-This will enable parallelism but could cause deadlocks.
+This should improve speed but could cause deadlocks and memory errors.
 
 ## Hardware
 
