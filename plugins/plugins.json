@@ -22,7 +22,7 @@
     "RAG": {
         "intents": ["find", "query", "retrieve", "look", "lookup"],
         "class": "plugins.rag.RAGPipeline",
-        "kwargs": false
+        "kwargs": {"chunk_size": 2000}
     },
     "DIFF": {
         "intents": ["generate", "render", "draw", "sketch"],

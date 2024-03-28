@@ -206,8 +206,9 @@ class ChatBot:
             top_k, 
             top_p
         )
+        self.context_length = context_length
         self.config = config
-        self.load_model(model, context_length, gpu_layers)
+        self.load_model(model, self.context_length, gpu_layers)
         self.intentions = IntentionManager(chat_bot=self)
         
     def select_model(self, resource_model_map):

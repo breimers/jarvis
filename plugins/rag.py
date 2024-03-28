@@ -72,11 +72,12 @@ class RAGPipeline(Plugin):
         """
         super(RAGPipeline, self).__init__(name=name, chat_bot=chat_bot)
         self.source = "rag/source"
+        self.chunk_size= kwargs.get("chunk_size", 100)
         if kwargs.get("source"):
             self.source = kwargs.get("source")
         loader = DirectoryLoader(self.source)
         docs = loader.load()
-        text_splitter = CharacterTextSplitter(chunk_size=self.chat_bot.gen_args.max_tokens, chunk_overlap=0)
+        text_splitter = CharacterTextSplitter(chunk_size=self.chunk_size, chunk_overlap=0)
         docs = text_splitter.split_documents(docs)
         self.embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
         self.vectorstore = Chroma.from_documents(
@@ -84,11 +85,6 @@ class RAGPipeline(Plugin):
             persist_directory='rag/vectors', 
             embedding=self.embeddings
         )
-        self.llm = LangchainWrapper(
-            model_instance=self.chat_bot.model,
-            max_tokens = self.chat_bot.gen_args.max_tokens
-        )
-        self.qa = RetrievalQA.from_llm(self.llm, retriever=self.vectorstore.as_retriever())
 
     def run(self, input):
         """Run the RAGPipeline plugin.
@@ -96,9 +92,8 @@ class RAGPipeline(Plugin):
         Args:
             input (str): The input text.
         """
-        print("***getting RAG results***")
-        results = self.qa(input)
-        print("***grabbing answer***")
-        answer = results['result']
+        print("***getting vector results***")
+        results = self.vectorstore.similarity_search(input)[:(self.chat_bot.context_length-1)]
         print("***passing results to llm***")
-        self.chat_bot.history.add('document-retrieval', answer)
+        self.chat_bot.history.add('document-retrieval', results)
+        self.chat_bot.history.add('system', "Contextualize and explain document-retrieval results, and always cite the source and authors if available.")
