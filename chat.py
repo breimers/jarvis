@@ -182,7 +182,7 @@ class ChatBot:
         top_p=0.9,
         top_k=1,
         max_tokens=512,
-        model="/Users/breimers/Workshop/models/llm/dolphin-2.6-mistral-7b-dpo-laser-Q8_0.gguf",
+        model=None,
         context_length=16000,
         gpu_layers=-1,
         config=dict(),

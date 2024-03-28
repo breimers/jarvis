@@ -10,6 +10,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import SentenceTransformerEmbeddings
 from langchain.chains import RetrievalQA
 from langchain_community.document_loaders import DirectoryLoader
+from langchain_text_splitters import CharacterTextSplitter
 from langchain_core.callbacks.manager import CallbackManagerForLLMRun
 from langchain_core.language_models.llms import LLM
 
@@ -25,12 +26,13 @@ class LangchainWrapper(LLM):
     def _llm_type(self) -> str:
         """Get the type of the language model."""
         return "llama-cpp"
-
+        
     def _call(
         self,
         prompt: str,
         stop: Optional[List[str]] = ["<|im_end|>"],
         run_manager: Optional[CallbackManagerForLLMRun] = None,
+        max_tokens: int = 100,
         **kwargs: Any,
     ) -> str:
         """Call the language model.
@@ -44,7 +46,8 @@ class LangchainWrapper(LLM):
         Returns:
             str: The generated text.
         """
-        return str(self.model_instance(prompt))
+        response = self.model_instance(prompt, max_tokens=max_tokens)
+        return str(response)
 
     @property
     def _identifying_params(self) -> Mapping[str, Any]:
@@ -73,13 +76,18 @@ class RAGPipeline(Plugin):
             self.source = kwargs.get("source")
         loader = DirectoryLoader(self.source)
         docs = loader.load()
+        text_splitter = CharacterTextSplitter(chunk_size=self.chat_bot.gen_args.max_tokens, chunk_overlap=0)
+        docs = text_splitter.split_documents(docs)
         self.embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
         self.vectorstore = Chroma.from_documents(
             documents=docs, 
             persist_directory='rag/vectors', 
             embedding=self.embeddings
         )
-        self.llm = LangchainWrapper(model_instance=self.chat_bot.model)
+        self.llm = LangchainWrapper(
+            model_instance=self.chat_bot.model,
+            max_tokens = self.chat_bot.gen_args.max_tokens
+        )
         self.qa = RetrievalQA.from_llm(self.llm, retriever=self.vectorstore.as_retriever())
 
     def run(self, input):
@@ -88,6 +96,9 @@ class RAGPipeline(Plugin):
         Args:
             input (str): The input text.
         """
+        print("***getting RAG results***")
         results = self.qa(input)
+        print("***grabbing answer***")
         answer = results['result']
+        print("***passing results to llm***")
         self.chat_bot.history.add('document-retrieval', answer)

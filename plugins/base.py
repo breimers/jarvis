@@ -17,6 +17,18 @@ class Plugin:
         self.name = name
         self.chat_bot = chat_bot
 
+    def run(self, input):
+        """Run the plugin's logic. 
+        You should overwrite this function when creating a subclass.
+
+        Args:
+            input: The input text.
+        """
+        self.chat_bot.history.add(
+            'plugin-agent', 
+            f"User sent >> {input}."
+        )
+
         
 class Save(Plugin):
     """Class representing a save plugin."""

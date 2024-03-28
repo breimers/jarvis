@@ -1,9 +1,4 @@
 {
-    "RAG": {
-        "intents": ["search", "find", "query", "retrieve", "look", "lookup", "research"],
-        "class": "plugins.rag.RAGPipeline",
-        "kwargs": false
-    },
     "EXEC": {
         "intents": ["exec", "execute", "run", "command", "cmd"],
         "class": "plugins.exec.Executor",
@@ -14,9 +9,29 @@
         "class": "plugins.base.Save",
         "kwargs": false
     },
+    "GOOG": {
+        "intents": ["google", "search"],
+        "class": "plugins.google.SearchEngine",
+        "kwargs": {
+            "results": 3,
+            "cx": "979891b010d794301",
+            "keyfile": "google-search.key",
+            "url": "https://www.googleapis.com/customsearch/v1"
+        }
+    },
+    "RAG": {
+        "intents": ["find", "query", "retrieve", "look", "lookup"],
+        "class": "plugins.rag.RAGPipeline",
+        "kwargs": false
+    },
     "DIFF": {
         "intents": ["generate", "render", "draw", "sketch"],
         "class": "plugins.diffusion.Diffuser",
-        "kwargs": {"model_path": "/Users/breimers/Workshop/models/generative/koala-700m", "device": "cpu", "destination": "/Users/breimers/Pictures", "show": false}
+        "kwargs": {
+            "model_path": "/Users/breimers/Workshop/models/generative/koala-700m", 
+            "device": "cpu", 
+            "destination": "/Users/breimers/Pictures", 
+            "show": false
+        }
     }
 }
