@@ -152,8 +152,9 @@ Kwargs (keyword arguments) is a json dictionary that is passed into the `Plugin`
 
 ## TODO
  - [ ] *MacOS interface (SwiftUI - WIP)*
- - [ ] *Discord interface (WIP)*
+ - [ ] *Discord interface (Pybot - WIP)*
  - [ ] Docker image
  - [x] Plugins interface
  - [x] Code execution
  - [x] Koala image generation
+ - [x] Google Search API
