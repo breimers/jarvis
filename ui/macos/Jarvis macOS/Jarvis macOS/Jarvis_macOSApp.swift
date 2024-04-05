@@ -27,11 +27,6 @@ struct Jarvis_macOSApp: App {
 
         let process = Process()
         process.executableURL = binaryURL
-
-        do {
-            try process.run()
-        } catch {
-            print("Error starting server: \(error)")
-        }
+        process.launch()
     }
 }

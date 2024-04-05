@@ -40,7 +40,7 @@ struct ChatScreen: View {
         let prompt = ["actor": "\(username)", "input": "\(message)"]
         messages.append("\(username): \(message)")
         
-        let url = URL(string: "http://127.0.0.1:8080/chat")!
+        let url = URL(string: "http://127.0.0.1:9480/chat")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
